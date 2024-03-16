@@ -1,10 +1,28 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import AppNav from "./UI/AppNav";
-import Global from "./UI/Global";
-import AreaChart from "./UI/AreaChart";
-import BarChart from "./UI/BarChart";
-import TableLegend from "./UI/TableLegend";
-import CoinRow from "./UI/CoinRow";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+
+import AppLayout from "./pages/AppLayout";
+import Home from "./pages/Home";
+import Portfolio from "./pages/Portfolio";
+import CoinPage from "./pages/CoinPage";
+import PageNotFound from "./pages/PageNotFound";
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<AppLayout />}>
+          <Route index element={<Home />} />
+          <Route path="portfolio" element={<Portfolio />} />
+          <Route path="coin/:id" element={<CoinPage />} />
+        </Route>
+        <Route path="*" element={<PageNotFound />} />
+        {/* Move PageNotFound inside Routes */}
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
 
 /* function App() {
   return (
@@ -16,7 +34,7 @@ import CoinRow from "./UI/CoinRow";
   );
 } */
 
-function App() {
+/* function App() {
   return (
     <>
       <Global />
@@ -31,6 +49,4 @@ function App() {
       </div>
     </>
   );
-}
-
-export default App;
+} */
