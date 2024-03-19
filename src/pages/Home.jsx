@@ -1,6 +1,6 @@
 import AreaChart from "../UI/AreaChart";
 import BarChart from "../UI/BarChart";
-import CoinRow from "../UI/CoinRow";
+import CoinTable from "../UI/CoinTable";
 import TableLegend from "../UI/TableLegend";
 
 function Home() {
@@ -11,7 +11,7 @@ function Home() {
         <BarChart />
       </div>
       <TableLegend />
-      <CoinRow />
+      <CoinTable />
     </>
   );
 }

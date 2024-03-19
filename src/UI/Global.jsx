@@ -1,6 +1,6 @@
 function Global() {
   return (
-    <div className="w-screen h-[56px] bg-custom-dark-navy-3 text-[12px] flex justify-center items-center gap-10 text-[#d1d1d1]">
+    <div className="max-w-[100vw] h-[56px] bg-custom-dark-navy-3 text-[12px] flex justify-center items-center gap-10 text-[#d1d1d1]">
       <div className="flex items-center gap-2">
         <img className="w-[16px] h-[16px]" src="/flash-circle.svg" alt="" />
         <span>Coins 7884</span>

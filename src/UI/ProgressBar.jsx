@@ -1,17 +1,25 @@
-function ProgressBar({ color }) {
+import { formatNumberWithK, formatProgressBar } from "../helper/roundtoOne";
+
+function ProgressBar({ color, first, second }) {
+  const innerWidth = formatProgressBar(first, second);
   return (
     <div className="flex flex-col w-[95%] text-[12px] text-[#fff] pb-2">
       <div className="flex justify-between">
-        <span style={{ color: `${color.bright}` }}>3.75</span>
-        <span>3.59</span>
+        <span style={{ color: `${color.bright}` }}>
+          {formatNumberWithK(first)}
+        </span>
+        <span>{formatNumberWithK(second)}</span>
       </div>
       <div
         className="h-[6px] w-[100%] rounded-full"
         style={{ backgroundColor: `${color.background}` }}
       >
         <div
-          className="h-[6px] w-[40px] rounded-full"
-          style={{ backgroundColor: `${color.bright}` }}
+          className="h-[6px] rounded-full"
+          style={{
+            backgroundColor: `${color.bright}`,
+            width: `${innerWidth}`,
+          }}
         ></div>
       </div>
     </div>

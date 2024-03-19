@@ -1,5 +1,6 @@
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+import Provider from "./Provider/Provider";
 import AppLayout from "./pages/AppLayout";
 import Home from "./pages/Home";
 import Portfolio from "./pages/Portfolio";
@@ -8,17 +9,18 @@ import PageNotFound from "./pages/PageNotFound";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<AppLayout />}>
-          <Route index element={<Home />} />
-          <Route path="portfolio" element={<Portfolio />} />
-          <Route path="coin/:id" element={<CoinPage />} />
-        </Route>
-        <Route path="*" element={<PageNotFound />} />
-        {/* Move PageNotFound inside Routes */}
-      </Routes>
-    </BrowserRouter>
+    <Provider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<AppLayout />}>
+            <Route index element={<Home />} />
+            <Route path="portfolio" element={<Portfolio />} />
+            <Route path="coin/:id" element={<CoinPage />} />
+          </Route>
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
