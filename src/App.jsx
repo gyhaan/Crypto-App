@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import Provider from "./Provider/Provider";
 import AppLayout from "./pages/AppLayout";
@@ -10,6 +11,7 @@ import PageNotFound from "./pages/PageNotFound";
 function App() {
   return (
     <Provider>
+      <ReactQueryDevtools initialIsOpen={false} />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<AppLayout />}>
