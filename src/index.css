@@ -45,6 +45,10 @@
   border-radius: 50%;
 }
 
+.slick-arrow.slick-disabled {
+  display: none !important;
+}
+
 .slick-prev:focus,
 .slick-next:focus {
   background-color: #627dea8f;
@@ -55,7 +59,7 @@
 .slick-next:hover {
   color: #fff;
   outline: none;
-  background: #627deac2;
+  background: #627deaf1;
 }
 
 .slick-prev:before {
