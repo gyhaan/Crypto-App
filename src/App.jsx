@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import Provider from "./Provider/Provider";
+import { CoinProvider } from "./context/ContextProvider";
 import AppLayout from "./pages/AppLayout";
 import Home from "./pages/Home";
 import Portfolio from "./pages/Portfolio";
@@ -12,16 +13,18 @@ function App() {
   return (
     <Provider>
       <ReactQueryDevtools initialIsOpen={false} />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<AppLayout />}>
-            <Route index element={<Home />} />
-            <Route path="portfolio" element={<Portfolio />} />
-            <Route path="coin/:id" element={<CoinPage />} />
-          </Route>
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <CoinProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<AppLayout />}>
+              <Route index element={<Home />} />
+              <Route path="portfolio" element={<Portfolio />} />
+              <Route path="coin/:id" element={<CoinPage />} />
+            </Route>
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </CoinProvider>
     </Provider>
   );
 }

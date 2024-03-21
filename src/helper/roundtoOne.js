@@ -3,7 +3,7 @@ export function roundToTwoDecimalPlaces(num) {
 }
 
 export function formatNumberWithK(n) {
-  if (n === null || n === undefined) return "hello";
+  if (n === null || n === undefined) return "";
   if (n < 1e3) return n.toFixed(2);
   if (n >= 1e3 && n < 1e6) return +(n / 1e3).toFixed(2) + "K";
   if (n >= 1e6 && n < 1e9) return +(n / 1e6).toFixed(2) + "M";

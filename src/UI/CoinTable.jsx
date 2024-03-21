@@ -1,16 +1,8 @@
-import { useInfiniteQuery } from "@tanstack/react-query";
-import { fetchCoins } from "../services/apiCoins";
 import CoinRow from "../UI/CoinRow";
+import { useCoin } from "../context/ContextProvider";
 
 function CoinTable() {
-  const { data, fetchNextPage, status, isFetching } = useInfiniteQuery({
-    queryKey: ["coins"],
-    queryFn: fetchCoins,
-    initialPageParam: 0,
-    getNextPageParam: (lastPage, pages) => pages.length + 1,
-  });
-
-  console.log(status);
+  const { data, status, isFetching, fetchNextPage } = useCoin();
 
   if (status === "error") {
     return (

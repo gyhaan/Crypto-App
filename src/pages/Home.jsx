@@ -6,7 +6,7 @@ import TableLegend from "../UI/TableLegend";
 function Home() {
   return (
     <>
-      <div className="grid grid-cols-2 gap-8 px-[15px]">
+      <div className="grid grid-cols-2 gap-8">
         <AreaChart />
         <BarChart />
       </div>
