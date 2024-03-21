@@ -1,40 +1,29 @@
 import { useCoin } from "../context/ContextProvider";
-
-import Carousel from "react-elastic-carousel";
-import { consts } from "react-elastic-carousel";
-
+import Slider from "react-slick";
 import SliderSkeleton from "./SliderSkeleton";
-import LeftArrow from "./LeftArrow";
-import RightArrow from "./RightArrow";
 
-function MyArrow({ type, onClick, isEdge }) {
-  const pointer = type === consts.PREV ? <LeftArrow /> : <RightArrow />;
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-  return (
-    <button onClick={onClick} disabled={isEdge}>
-      {pointer}
-    </button>
-  );
-}
-
-function Slider() {
+function Carousel() {
   const { data } = useCoin();
   const render = data?.pages[0].map((coin) => (
     <SliderSkeleton coin={coin} key={coin.id} />
   ));
 
+  const settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 2,
+  };
+
   return (
-    <div>
-      <Carousel
-        renderArrow={MyArrow}
-        itemsToShow={5}
-        itemsToScroll={1}
-        itemPadding={[0, 10, 0, 10]}
-      >
-        {render}
-      </Carousel>
+    <div className="mt-4 mb-6">
+      <Slider {...settings}>{render}</Slider>
     </div>
   );
 }
 
-export default Slider;
+export default Carousel;

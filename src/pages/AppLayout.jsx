@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import AppNav from "../UI/AppNav";
 import Global from "../UI/Global";
-import Slider from "../UI/Slider";
+import Carousel from "../UI/Slider";
 
 function AppLayout() {
   return (
@@ -13,7 +13,7 @@ function AppLayout() {
         </div>
       </header>
       <main className="max-w-[1296px] mx-auto">
-        <Slider />
+        <Carousel />
         <Outlet />
       </main>
     </>
