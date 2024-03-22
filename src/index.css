@@ -29,14 +29,7 @@
   }
 }
 
-.slick-prev {
-  width: 50px;
-  height: 50px;
-  background-color: #627dea8f;
-  z-index: 10;
-  border-radius: 50%;
-}
-
+.slick-prev,
 .slick-next {
   width: 50px;
   height: 50px;
@@ -63,11 +56,11 @@
 }
 
 .slick-prev:before {
-  content: url("/public/left-arrow.svg");
+  content: url("/left-arrow.svg");
 }
 
 .slick-next:before {
-  content: url("/public/right-arrow.svg");
+  content: url("/right-arrow.svg");
 }
 
 /* Add this to your global.css or tailwind.css file */

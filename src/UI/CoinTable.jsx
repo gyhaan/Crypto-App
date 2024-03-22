@@ -1,5 +1,6 @@
 import CoinRow from "../UI/CoinRow";
 import { useCoin } from "../context/ContextProvider";
+import Loader from "./Loader";
 
 function CoinTable() {
   const { data, status, isFetching, fetchNextPage } = useCoin();
@@ -26,7 +27,7 @@ function CoinTable() {
           Load More
         </button>
       )}
-      {isFetching && <div className="loader"></div>}
+      {isFetching && <Loader />}
     </div>
   );
 }

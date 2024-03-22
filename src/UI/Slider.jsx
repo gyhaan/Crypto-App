@@ -4,12 +4,15 @@ import SliderSkeleton from "./SliderSkeleton";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Loader from "./Loader";
 
 function Carousel() {
   const { data } = useCoin();
   const render = data?.pages[0].map((coin) => (
     <SliderSkeleton coin={coin} key={coin.id} />
   ));
+
+  if (!data) return <Loader />;
 
   const settings = {
     dots: false,
