@@ -11,7 +11,7 @@ function SliderSkeleton({ coin }) {
     price_change_percentage_24h_in_currency,
   } = coin;
   return (
-    <li className="max-w-[250px] h-[95px] bg-custom-dark-navy flex items-center justify-center py-3 px-5  gap-5  rounded-md text-[#d1d1d1] hover:bg-custom-blue-violet hover:bg-opacity-[85%] hover:cursor-pointer">
+    <div className="max-w-[250px] h-[95px] bg-custom-dark-navy flex items-center justify-center py-3 px-5  gap-5  rounded-md text-[#d1d1d1] hover:bg-custom-blue-violet hover:bg-opacity-[85%] hover:cursor-pointer">
       <img src={image} alt={name} className="w-[32px] h-[32px] block" />
       <div className="w-[160px] flex flex-col gap-1">
         <p className="text-[16px] text-[#fff]">{name}</p>
@@ -39,7 +39,7 @@ function SliderSkeleton({ coin }) {
           </div>
         </div>
       </div>
-    </li>
+    </div>
   );
 }
 

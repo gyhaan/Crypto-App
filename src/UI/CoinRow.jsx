@@ -1,3 +1,5 @@
+import { AreaChart, Area, ResponsiveContainer, YAxis, Tooltip } from "recharts";
+
 import ProgressBar from "./ProgressBar";
 import {
   roundToTwoDecimalPlaces,
@@ -5,6 +7,7 @@ import {
 } from "../helper/roundtoOne";
 
 function CoinRow({ coin }) {
+  console.log(coin);
   const {
     name,
     image,
@@ -17,7 +20,20 @@ function CoinRow({ coin }) {
     market_cap,
     circulating_supply,
     total_supply,
+    sparkline_in_7d,
   } = coin;
+
+  const coinChart = sparkline_in_7d.price
+    .map((price, index) => {
+      return {
+        price,
+        index,
+      };
+    })
+    .filter((price, index) => {
+      if (index % 2 === 0) return price;
+    });
+
   return (
     <div className="bg-custom-dark-navy text-[#fff] flex justify-around items-center h-20 text-[14px] p-5 rounded-lg mb-4">
       <span className="max-w-[3%] w-full mr-2 px-1">{market_cap_rank}</span>
@@ -98,7 +114,42 @@ function CoinRow({ coin }) {
           second={total_supply}
         />
       </div>
-      <span className="max-w-[14%] w-full">Chart</span>
+      <div className="max-w-[14%] w-full">
+        <ResponsiveContainer width="100%" height={60}>
+          <AreaChart
+            data={coinChart}
+            margin={{ top: 10, right: 10, left: 10, bottom: 3 }}
+          >
+            <defs>
+              <linearGradient id="positiveGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#01F1E3" stopOpacity={0.8} />
+                <stop offset="95%" stopColor="#01F1E3" stopOpacity={0} />
+              </linearGradient>
+              <linearGradient id="negativeGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#FE2264" stopOpacity={0.8} />
+                <stop offset="95%" stopColor="#FE2264" stopOpacity={0} />
+              </linearGradient>
+            </defs>
+            <Area
+              dataKey="price"
+              stroke={
+                price_change_percentage_7d_in_currency > 0
+                  ? "#01F1E3"
+                  : "#fe2264"
+              }
+              fill={
+                price_change_percentage_7d_in_currency > 0
+                  ? "url(#positiveGradient)"
+                  : "url(#negativeGradient)"
+              }
+              strokeWidth={2}
+              type="monotone"
+            />
+            <YAxis type="number" domain={["dataMin", "dataMax"]} hide={true} />
+          </AreaChart>
+          <Tooltip />
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 }
