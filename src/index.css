@@ -29,11 +29,19 @@
   }
 }
 
+.slick-next {
+  right: -5px;
+}
+
+.slick-prev {
+  left: -5px;
+}
+
 .slick-prev,
 .slick-next {
   width: 50px;
   height: 50px;
-  background-color: #627dea8f;
+  background-color: #627dea54;
   z-index: 10;
   border-radius: 50%;
 }
@@ -44,7 +52,7 @@
 
 .slick-prev:focus,
 .slick-next:focus {
-  background-color: #627dea8f;
+  background-color: #627dea54;
   outline: none;
 }
 

@@ -31,7 +31,7 @@ function CoinRow({ coin }) {
       };
     })
     .filter((price, index) => {
-      if (index % 2 === 0) return price;
+      if (index % 7 === 0) return price;
     });
 
   return (

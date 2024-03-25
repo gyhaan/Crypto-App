@@ -13,7 +13,6 @@ function AppLayout() {
         </div>
       </header>
       <main className="max-w-[1296px] mx-auto">
-        <Carousel />
         <Outlet />
       </main>
     </>
