@@ -17,7 +17,7 @@ function CoinTable() {
     coins.map((coin) => <CoinRow key={coin.id} coin={coin} />)
   );
   return (
-    <div className="px-3">
+    <div className="px-2">
       {coinContent}
       {data && !isFetching && (
         <button

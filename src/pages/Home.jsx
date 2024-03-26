@@ -8,7 +8,7 @@ function Home() {
   return (
     <>
       <Carousel />
-      <div className="grid grid-cols-2 gap-8 px-4">
+      <div className="grid grid-cols-2 gap-7 px-4">
         <AreaChart />
         <BarChart />
       </div>

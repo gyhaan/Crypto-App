@@ -23,7 +23,7 @@ function Carousel() {
   };
 
   return (
-    <div className="mt-4 mb-6">
+    <div className="mt-4 mb-6 px-2">
       <Slider {...settings}>{render}</Slider>
     </div>
   );
