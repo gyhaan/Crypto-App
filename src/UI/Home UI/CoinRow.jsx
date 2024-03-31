@@ -4,7 +4,7 @@ import ProgressBar from "./ProgressBar";
 import {
   roundToTwoDecimalPlaces,
   formatNumberWithK,
-} from "../helper/roundtoOne";
+} from "../../helper/roundtoOne";
 
 function CoinRow({ coin }) {
   console.log(coin);
@@ -31,7 +31,7 @@ function CoinRow({ coin }) {
       };
     })
     .filter((price, index) => {
-      if (index % 3 === 0) return price;
+      if ((index + 1) % 2 === 0) return price;
     });
 
   return (

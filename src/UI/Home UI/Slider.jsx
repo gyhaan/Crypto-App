@@ -1,4 +1,4 @@
-import { useCoin } from "../context/ContextProvider";
+import { useCoin } from "../../context/ContextProvider";
 import Slider from "react-slick";
 import SliderSkeleton from "./SliderSkeleton";
 
@@ -7,10 +7,18 @@ import "slick-carousel/slick/slick-theme.css";
 import Loader from "./Loader";
 
 function Carousel() {
-  const { data } = useCoin();
+  const { data, status } = useCoin();
   const render = data?.pages[0].map((coin) => (
     <SliderSkeleton coin={coin} key={coin.id} />
   ));
+
+  if (status === "error") {
+    return (
+      <h1 className="text-[#fff] mx-auto w-fit my-7 text-[28px]">
+        ⚠️Failed to fetch
+      </h1>
+    );
+  }
 
   if (!data) return <Loader />;
 

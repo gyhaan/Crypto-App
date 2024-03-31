@@ -1,8 +1,8 @@
-import AreaChart from "../UI/AreaChart";
-import BarChart from "../UI/BarChart";
-import CoinTable from "../UI/CoinTable";
-import TableLegend from "../UI/TableLegend";
-import Carousel from "../UI/Slider";
+import AreaChart from "../UI/Home UI/AreaChart";
+import BarChart from "../UI/Home UI/BarChart";
+import CoinTable from "../UI/Home UI/CoinTable";
+import TableLegend from "../UI/Home UI/TableLegend";
+import Carousel from "../UI/Home UI/Slider";
 
 function Home() {
   return (

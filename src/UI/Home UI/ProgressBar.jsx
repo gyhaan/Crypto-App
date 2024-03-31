@@ -1,4 +1,4 @@
-import { formatNumberWithK, formatProgressBar } from "../helper/roundtoOne";
+import { formatNumberWithK, formatProgressBar } from "../../helper/roundtoOne";
 
 function ProgressBar({ color, first, second }) {
   const innerWidth = formatProgressBar(first, second);

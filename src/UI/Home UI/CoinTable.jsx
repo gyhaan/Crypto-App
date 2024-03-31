@@ -1,9 +1,9 @@
-import CoinRow from "../UI/CoinRow";
-import { useCoin } from "../context/ContextProvider";
+import CoinRow from "../Home UI/CoinRow";
+import { useCoin } from "../../context/ContextProvider";
 import Loader from "./Loader";
 
 function CoinTable() {
-  const { data, status, isFetching, fetchNextPage } = useCoin();
+  const { data: coins, status, isFetching, fetchNextPage } = useCoin();
 
   if (status === "error") {
     return (
@@ -13,13 +13,13 @@ function CoinTable() {
     );
   }
 
-  const coinContent = data?.pages.map((coins) =>
+  const coinContent = coins?.pages.map((coins) =>
     coins.map((coin) => <CoinRow key={coin.id} coin={coin} />)
   );
   return (
-    <div className="px-2">
+    <div className="px-2 mb-10">
       {coinContent}
-      {data && !isFetching && (
+      {coins && !isFetching && coins?.pages.length < 4 && (
         <button
           onClick={() => fetchNextPage()}
           className="block w-fit bg-[#fff] px-8 py-3 text-custom-blue-violet rounded-md my-5 mx-auto"
@@ -28,6 +28,11 @@ function CoinTable() {
         </button>
       )}
       {isFetching && <Loader />}
+      {coins?.pages.length === 4 && (
+        <p className="text-[#fff] mt-10 text-center text-[25px]">
+          Thank you, that's all we have for now 😇
+        </p>
+      )}
     </div>
   );
 }

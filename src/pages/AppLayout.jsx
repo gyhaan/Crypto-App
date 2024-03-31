@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom";
-import AppNav from "../UI/AppNav";
-import Global from "../UI/Global";
-import Carousel from "../UI/Slider";
+import AppNav from "../UI/Home UI/AppNav";
+import Global from "../UI/Home UI/Global";
 
 function AppLayout() {
   return (
