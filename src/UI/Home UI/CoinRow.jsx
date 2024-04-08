@@ -5,10 +5,9 @@ import ProgressBar from "./ProgressBar";
 import {
   roundToTwoDecimalPlaces,
   formatNumberWithK,
-} from "../../helper/roundtoOne";
+} from "../../helper/formatNumbers";
 
 function CoinRow({ coin }) {
-  console.log(coin);
   const {
     name,
     id,
@@ -48,10 +47,9 @@ function CoinRow({ coin }) {
           $ {formatNumberWithK(current_price)}
         </span>
         <div className=" max-w-[7%] w-full flex ml-[-12px] pr-2">
-          {price_change_percentage_1h_in_currency > 0 && (
+          {price_change_percentage_1h_in_currency > 0 ? (
             <img src="/chevron-up.svg" alt="" />
-          )}
-          {price_change_percentage_1h_in_currency < 0 && (
+          ) : (
             <img src="/chevron-down.svg" alt="" />
           )}
 
@@ -67,10 +65,9 @@ function CoinRow({ coin }) {
           </span>
         </div>
         <div className=" max-w-[7%] w-full flex  pr-2">
-          {price_change_percentage_24h_in_currency > 0 && (
+          {price_change_percentage_24h_in_currency > 0 ? (
             <img src="/chevron-up.svg" alt="" />
-          )}
-          {price_change_percentage_24h_in_currency < 0 && (
+          ) : (
             <img src="/chevron-down.svg" alt="" />
           )}
 
@@ -86,10 +83,9 @@ function CoinRow({ coin }) {
           </span>
         </div>
         <div className=" max-w-[7%] w-full flex  pr-2">
-          {price_change_percentage_7d_in_currency > 0 && (
+          {price_change_percentage_7d_in_currency > 0 ? (
             <img src="/chevron-up.svg" alt="" />
-          )}
-          {price_change_percentage_7d_in_currency < 0 && (
+          ) : (
             <img src="/chevron-down.svg" alt="" />
           )}
           <span
@@ -166,7 +162,6 @@ function CoinRow({ coin }) {
                 hide={true}
               />
             </AreaChart>
-            <Tooltip />
           </ResponsiveContainer>
         </div>
       </div>

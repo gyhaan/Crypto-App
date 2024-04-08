@@ -1,5 +1,6 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { useEffect } from "react";
 
 import Provider from "./Provider/Provider";
 import { CoinProvider } from "./context/ContextProvider";
@@ -8,6 +9,18 @@ import Home from "./pages/Home";
 import Portfolio from "./pages/Portfolio";
 import CoinPage from "./pages/CoinPage";
 import PageNotFound from "./pages/PageNotFound";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    if (pathname.startsWith("/coin/")) {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   return (
@@ -23,6 +36,7 @@ function App() {
             </Route>
             <Route path="*" element={<PageNotFound />} />
           </Routes>
+          <ScrollToTop />
         </BrowserRouter>
       </CoinProvider>
     </Provider>

@@ -20,3 +20,21 @@ export async function fetchCoins({ pageParam }) {
     throw new Error(error);
   }
 }
+
+export async function fetchCoinById(coinId) {
+  try {
+    const response = await fetch(
+      `/api/v3/coins/${coinId}?localization=false&tickers=false&market_data=true&community_data=true&developer_data=false&sparkline=true`,
+      options
+    );
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    console.error("Fetch error:", error);
+    throw new Error(error);
+  }
+}

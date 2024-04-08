@@ -3,6 +3,10 @@
     {
       "source": "/api/v3/coins/markets",
       "destination": "https://api.coingecko.com/api/v3/coins/markets"
+    },
+    {
+      "source": "/api/v3/coins/:path*",
+      "destination": "https://api.coingecko.com/api/v3/coins/:path*"
     }
   ]
 }
