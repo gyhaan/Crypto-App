@@ -25,13 +25,13 @@ function ReusableChart({
         <Area
           dataKey="price"
           stroke={
-            (price_change_percentage_7d_in_currency.usd ||
+            (price_change_percentage_7d_in_currency?.usd ||
               price_change_percentage_7d_in_currency) > 0
               ? "#01F1E3"
               : "#fe2264"
           }
           fill={
-            (price_change_percentage_7d_in_currency.usd ||
+            (price_change_percentage_7d_in_currency?.usd ||
               price_change_percentage_7d_in_currency) > 0
               ? "url(#positiveGradient)"
               : "url(#negativeGradient)"
