@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
-import { AreaChart, Area, ResponsiveContainer, YAxis, Tooltip } from "recharts";
 
 import ProgressBar from "./ProgressBar";
+import ReusableChart from "./ReusableChart";
+
 import {
   roundToTwoDecimalPlaces,
   formatNumberWithK,
-} from "../../helper/formatNumbers";
+} from "../helper/formatNumbers";
 
 function CoinRow({ coin }) {
   const {
@@ -114,55 +115,13 @@ function CoinRow({ coin }) {
           />
         </div>
         <div className="max-w-[14%] w-full">
-          <ResponsiveContainer width="100%" height={60}>
-            <AreaChart
-              data={coinChart}
-              margin={{ top: 10, right: 10, left: 10, bottom: 3 }}
-            >
-              <defs>
-                <linearGradient
-                  id="positiveGradient"
-                  x1="0"
-                  y1="0"
-                  x2="0"
-                  y2="1"
-                >
-                  <stop offset="5%" stopColor="#01F1E3" stopOpacity={0.8} />
-                  <stop offset="95%" stopColor="#01F1E3" stopOpacity={0} />
-                </linearGradient>
-                <linearGradient
-                  id="negativeGradient"
-                  x1="0"
-                  y1="0"
-                  x2="0"
-                  y2="1"
-                >
-                  <stop offset="5%" stopColor="#FE2264" stopOpacity={0.8} />
-                  <stop offset="95%" stopColor="#FE2264" stopOpacity={0} />
-                </linearGradient>
-              </defs>
-              <Area
-                dataKey="price"
-                stroke={
-                  price_change_percentage_7d_in_currency > 0
-                    ? "#01F1E3"
-                    : "#fe2264"
-                }
-                fill={
-                  price_change_percentage_7d_in_currency > 0
-                    ? "url(#positiveGradient)"
-                    : "url(#negativeGradient)"
-                }
-                strokeWidth={2}
-                type="monotone"
-              />
-              <YAxis
-                type="number"
-                domain={["dataMin", "dataMax"]}
-                hide={true}
-              />
-            </AreaChart>
-          </ResponsiveContainer>
+          <ReusableChart
+            data={coinChart}
+            price_change_percentage_7d_in_currency={
+              price_change_percentage_7d_in_currency
+            }
+            boolean={false}
+          />
         </div>
       </div>
     </Link>

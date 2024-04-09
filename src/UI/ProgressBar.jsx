@@ -1,7 +1,4 @@
-import {
-  formatNumberWithK,
-  formatProgressBar,
-} from "../../helper/formatNumbers";
+import { formatNumberWithK, formatProgressBar } from "../helper/formatNumbers";
 
 function ProgressBar({ color, first, second }) {
   const innerWidth = formatProgressBar(first, second);

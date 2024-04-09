@@ -12,6 +12,15 @@ body {
   font-family: Inter, sans-serif;
 }
 
+.about a {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #627eea;
+}
+
 .loader {
   width: 40px;
   height: 40px;

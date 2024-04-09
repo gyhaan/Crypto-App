@@ -1,5 +1,5 @@
-import CoinRow from "../Home UI/CoinRow";
-import { useCoin } from "../../context/ContextProvider";
+import CoinRow from "./CoinRow";
+import { useCoin } from "../context/ContextProvider";
 import Loader from "./Loader";
 
 function CoinTable() {

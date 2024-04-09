@@ -1,4 +1,4 @@
-import { useCoin } from "../../context/ContextProvider";
+import { useCoin } from "../context/ContextProvider";
 import Slider from "react-slick";
 import SliderSkeleton from "./SliderSkeleton";
 

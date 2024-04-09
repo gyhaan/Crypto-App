@@ -1,8 +1,8 @@
 import {
   formatNumberWithK,
   roundToTwoDecimalPlaces,
-} from "../../helper/formatNumbers";
-import { formatTime } from "../../helper/formatTime";
+} from "../helper/formatNumbers";
+import { formatTime } from "../helper/formatTime";
 
 function CoinDetails({ coin }) {
   const { name, symbol, description, links, market_data, image } = coin;
@@ -16,7 +16,6 @@ function CoinDetails({ coin }) {
     price_change_percentage_24h,
   } = market_data;
 
-  console.log(coin);
   return (
     <div className="text-[#fff] flex flex-col w-[50%] gap-4 px-6 bg-custom-dark-navy-2 rounded-[10px] h-[340px] justify-evenly">
       <div className="border-b border-[#fff] py-3">

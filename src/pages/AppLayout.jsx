@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import AppNav from "../UI/Home UI/AppNav";
-import Global from "../UI/Home UI/Global";
+import AppNav from "../UI/AppNav";
+import Global from "../UI/Global";
 
 function AppLayout() {
   return (

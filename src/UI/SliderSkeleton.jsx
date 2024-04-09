@@ -1,7 +1,7 @@
 import {
   roundToTwoDecimalPlaces,
   formatNumberWithK,
-} from "../../helper/formatNumbers";
+} from "../helper/formatNumbers";
 
 function SliderSkeleton({ coin }) {
   const {

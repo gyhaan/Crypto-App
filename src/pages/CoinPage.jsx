@@ -3,11 +3,11 @@ import { useParams } from "react-router-dom";
 
 import { fetchCoinById } from "../services/apiCoins";
 
-import AboutCoin from "../UI/Coin UI/AboutCoin";
-import CoinChart from "../UI/Coin UI/CoinChart";
-import CoinDetails from "../UI/Coin UI/CoinDetails";
-import MarketDetails from "../UI/Coin UI/MarketDetails";
-import Loader from "../UI/Home UI/Loader";
+import AboutCoin from "../UI/AboutCoin";
+import CoinChart from "../UI/CoinChart";
+import CoinDetails from "../UI/CoinDetails";
+import MarketDetails from "../UI/MarketDetails";
+import Loader from "../UI/Loader";
 
 function CoinPage() {
   const { id } = useParams();
@@ -27,9 +27,9 @@ function CoinPage() {
     <div className="px-4 pb-10 pt-2">
       <div className="flex gap-4 mb-5">
         <CoinDetails coin={coin} />
-        <CoinChart />
+        <CoinChart coin={coin} />
       </div>
-      <MarketDetails />
+      <MarketDetails coin={coin} />
       <AboutCoin coin={coin} />
     </div>
   );
