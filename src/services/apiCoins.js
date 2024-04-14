@@ -3,10 +3,10 @@ const options = {
   headers: { "x-cg-demo-api-key": "CG-7cteEQTCaeK4y2UBamAguGKg" },
 };
 
-export async function fetchCoins({ pageParam }) {
+export async function fetchCoins({ pageParam, currency }) {
   try {
     const response = await fetch(
-      `/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=${pageParam}&sparkline=true&price_change_percentage=1h%2C24h%2C7d&precision=2`,
+      `/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=50&page=${pageParam}&sparkline=true&price_change_percentage=1h%2C24h%2C7d&precision=2`,
       options
     );
     if (!response.ok) {

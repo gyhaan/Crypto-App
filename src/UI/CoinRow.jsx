@@ -2,13 +2,16 @@ import { Link } from "react-router-dom";
 
 import ProgressBar from "./ProgressBar";
 import ReusableChart from "./ReusableChart";
+import { useCoin } from "../context/ContextProvider";
 
 import {
   roundToTwoDecimalPlaces,
   formatNumberWithK,
+  currencyFormatter,
 } from "../helper/formatNumbers";
 
 function CoinRow({ coin }) {
+  const { currency } = useCoin();
   const {
     name,
     id,
@@ -45,7 +48,7 @@ function CoinRow({ coin }) {
           <span className="px-3">{name}</span>
         </div>
         <span className="max-w-[8%] w-full px-1 ml-[-12px]">
-          $ {formatNumberWithK(current_price)}
+          {currencyFormatter(currency)} {formatNumberWithK(current_price)}
         </span>
         <div className=" max-w-[7%] w-full flex ml-[-12px] pr-2">
           {price_change_percentage_1h_in_currency > 0 ? (

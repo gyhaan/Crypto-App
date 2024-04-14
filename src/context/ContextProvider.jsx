@@ -1,18 +1,35 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 import { fetchCoins } from "../services/apiCoins";
 
 const CoinContext = createContext();
 
 function CoinProvider({ children }) {
-  const { data, fetchNextPage, status, isFetching } = useInfiniteQuery({
-    queryKey: ["coins"],
-    queryFn: fetchCoins,
-    initialPageParam: 0,
-    getNextPageParam: (lastPage, pages) => pages.length + 1,
-  });
+  const [currency, setCurrency] = useState("usd");
+
+  const { data, fetchNextPage, status, isFetching, refetch, isRefetching } =
+    useInfiniteQuery({
+      queryKey: ["coins", { currency }],
+      queryFn: ({ pageParam }) => fetchCoins({ pageParam, currency }),
+      initialPageParam: 0,
+      getNextPageParam: (lastPage, pages) => pages.length + 1,
+      refetchInterval: 60 * 1000,
+      refetchIntervalInBackground: true,
+    });
+
   return (
-    <CoinContext.Provider value={{ data, fetchNextPage, status, isFetching }}>
+    <CoinContext.Provider
+      value={{
+        data,
+        fetchNextPage,
+        status,
+        isFetching,
+        refetch,
+        isRefetching,
+        currency,
+        setCurrency,
+      }}
+    >
       {children}
     </CoinContext.Provider>
   );

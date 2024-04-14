@@ -17,7 +17,7 @@ function CoinPage() {
     isLoading,
     status,
   } = useQuery({
-    queryKey: ["coin", id],
+    queryKey: ["coin", { id }],
     queryFn: () => fetchCoinById(id),
   });
 

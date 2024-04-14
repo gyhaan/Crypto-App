@@ -74,6 +74,7 @@ a:hover {
   color: #fff;
   outline: none;
   background: #627deaf1;
+  border: 2px dashed #fff;
 }
 
 .slick-prev:before {
