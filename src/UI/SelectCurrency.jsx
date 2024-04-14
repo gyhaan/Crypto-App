@@ -1,9 +1,7 @@
-import { useQueryClient } from "@tanstack/react-query";
 import { useCoin } from "../context/ContextProvider";
 
 function SelectCurrency() {
   const { currency, setCurrency, refetch } = useCoin();
-  const queryClient = useQueryClient();
   async function trial(value) {
     try {
       await refetch({ currency: value });
