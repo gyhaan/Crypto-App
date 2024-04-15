@@ -3,7 +3,15 @@ import { useCoin } from "../context/ContextProvider";
 import Loader from "./Loader";
 
 function CoinTable() {
-  const { data: coins, status, isFetching, fetchNextPage } = useCoin();
+  const {
+    data: coins,
+    status,
+    isFetching,
+    fetchNextPage,
+    isRefetching,
+  } = useCoin();
+
+  console.log("fetching:", isFetching, "refetch:", isRefetching);
 
   if (status === "error") {
     return (

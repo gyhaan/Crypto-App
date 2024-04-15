@@ -1,6 +1,8 @@
-import { formatNumberWithK } from "../helper/formatNumbers";
+import { useCoin } from "../context/ContextProvider";
+import { currencyFormatter, formatNumberWithK } from "../helper/formatNumbers";
 
 function MarketDetails({ coin }) {
+  const { currency } = useCoin();
   const { market_data, symbol } = coin;
 
   const {
@@ -16,30 +18,38 @@ function MarketDetails({ coin }) {
       <div className="bg-custom-dark-navy-3 py-7 px-5 rounded-[10px] flex flex-wrap gap-y-4">
         <div className="w-1/4">
           <h5 className="text-[#d1d1d1] text-[14px]">MARKET CAP</h5>
-          <p className="text-[#fff]">$ {formatNumberWithK(market_cap.usd)}</p>
+          <p className="text-[#fff]">
+            {currencyFormatter(currency)}{" "}
+            {formatNumberWithK(market_cap[currency])}
+          </p>
         </div>
         <div className="w-1/4">
           <h5 className="text-[#d1d1d1] text-[14px]">
             FULLY DILUTED VALUATION
           </h5>
           <p className="text-[#fff]">
-            $ {formatNumberWithK(fully_diluted_valuation.usd)}
+            {currencyFormatter(currency)}{" "}
+            {formatNumberWithK(fully_diluted_valuation[currency])}
           </p>
         </div>
         <div className="w-1/4">
           <h5 className="text-[#d1d1d1] text-[14px]">TOTAL VOLUME (24H)</h5>
-          <p className="text-[#fff]">$ {formatNumberWithK(total_volume.usd)}</p>
+          <p className="text-[#fff]">
+            {currencyFormatter(currency)}{" "}
+            {formatNumberWithK(total_volume[currency])}
+          </p>
         </div>
         <div className="w-1/4">
           <h5 className="text-[#d1d1d1] text-[14px]">VOLUME/MARKET</h5>
           <p className="text-[#fff]">
-            {formatNumberWithK(total_volume.usd / market_cap.usd)}
+            {formatNumberWithK(total_volume[currency] / market_cap[currency])}
           </p>
         </div>
         <div className="w-1/4">
           <h5 className="text-[#d1d1d1] text-[14px]">CIRCULATING SUPPLY</h5>
           <p className="text-[#fff]">
-            $ {formatNumberWithK(circulating_supply)}
+            {currencyFormatter(currency)}{" "}
+            {formatNumberWithK(circulating_supply)}
           </p>
         </div>
         <div className="w-1/4">

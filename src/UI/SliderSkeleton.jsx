@@ -1,9 +1,12 @@
+import { useCoin } from "../context/ContextProvider";
 import {
   roundToTwoDecimalPlaces,
   formatNumberWithK,
+  currencyFormatter,
 } from "../helper/formatNumbers";
 
 function SliderSkeleton({ coin }) {
+  const { currency } = useCoin();
   const {
     image,
     name,
@@ -16,7 +19,10 @@ function SliderSkeleton({ coin }) {
       <div className="w-[160px] flex flex-col gap-1">
         <p className="text-[16px] text-[#fff]">{name}</p>
         <div className="flex gap-2 text-[14px]">
-          <span>${formatNumberWithK(current_price)}</span>
+          <span>
+            {currencyFormatter(currency)}
+            {formatNumberWithK(current_price)}
+          </span>
           <div
             style={{
               color:
