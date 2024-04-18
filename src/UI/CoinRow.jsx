@@ -41,7 +41,7 @@ function CoinRow({ coin }) {
 
   return (
     <Link to={`coin/${id}`}>
-      <div className="bg-custom-dark-navy text-[#fff] flex justify-around items-center h-20 text-[14px] p-5 rounded-lg mb-4">
+      <div className="bg-custom-dark-navy text-[#fff] flex justify-around items-center h-20 text-[14px] p-5 rounded-lg mb-4 hover:border-[2px] hover:border-[#fff] hover:border-opacity-20">
         <span className="max-w-[3%] w-full mr-2 px-1">{market_cap_rank}</span>
         <div className="max-w-[15%] w-full flex px-1 ml-[-12px]">
           <img src={image} alt="" className="w-[20px] h-auto" />
