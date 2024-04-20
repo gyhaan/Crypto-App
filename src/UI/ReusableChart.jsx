@@ -1,4 +1,5 @@
 import { AreaChart, Area, ResponsiveContainer, YAxis, Tooltip } from "recharts";
+import { useCoin } from "../context/ContextProvider";
 
 function ReusableChart({
   data,
@@ -6,6 +7,7 @@ function ReusableChart({
   boolean = true,
   height = 60,
 }) {
+  const { currency } = useCoin();
   return (
     <ResponsiveContainer width="100%" height={height}>
       <AreaChart
@@ -25,13 +27,13 @@ function ReusableChart({
         <Area
           dataKey="price"
           stroke={
-            (price_change_percentage_7d_in_currency?.usd ||
+            (price_change_percentage_7d_in_currency?.[currency] ||
               price_change_percentage_7d_in_currency) > 0
               ? "#01F1E3"
               : "#fe2264"
           }
           fill={
-            (price_change_percentage_7d_in_currency?.usd ||
+            (price_change_percentage_7d_in_currency?.[currency] ||
               price_change_percentage_7d_in_currency) > 0
               ? "url(#positiveGradient)"
               : "url(#negativeGradient)"
@@ -50,7 +52,7 @@ function CustomTooltip({ active, payload, label }) {
   if (active && payload && payload.length) {
     return (
       <div className="bg-custom-dark-navy-2 py-3 px-6 border-[#fff] border rounded-md">
-        <p>Price: ${payload[0].value.toFixed(5)}</p>
+        <p>Price: ${payload[0].value}</p>
       </div>
     );
   }
