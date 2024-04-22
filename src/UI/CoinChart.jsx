@@ -3,7 +3,6 @@ import ReusableChart from "./ReusableChart";
 
 function CoinChart({ coin }) {
   const { market_data } = coin;
-  console.log(coin);
   const coinChart = market_data.sparkline_7d.price.map((price, index) => {
     return { price, index };
   });

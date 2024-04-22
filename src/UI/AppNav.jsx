@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import SearcBar from "./SearcBar";
+import SearchBar from "./SearchBar";
 import SelectCurrency from "./SelectCurrency";
 
 function AppNav() {
@@ -13,7 +13,7 @@ function AppNav() {
         </ul>
       </nav>
       <div className="flex gap-[16px] w-[544px] justify-end">
-        <SearcBar />
+        <SearchBar />
         <SelectCurrency />
         <button className="w-[48px] h-[48px] bg-custom-dark-navy rounded-[5px] border border-[#fff] border-opacity-5 text-[#fff]">
           ☀︎

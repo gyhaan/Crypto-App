@@ -6,6 +6,7 @@ const CoinContext = createContext();
 
 function CoinProvider({ children }) {
   const [currency, setCurrency] = useState("usd");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const { data, fetchNextPage, status, isFetching, refetch, isRefetching } =
     useInfiniteQuery({
@@ -28,6 +29,8 @@ function CoinProvider({ children }) {
         isRefetching,
         currency,
         setCurrency,
+        searchQuery,
+        setSearchQuery,
       }}
     >
       {children}

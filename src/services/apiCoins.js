@@ -38,3 +38,21 @@ export async function fetchCoinById(coinId) {
     throw new Error(error);
   }
 }
+
+export async function fetchSearchedCoins() {
+  try {
+    const response = await fetch(
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250",
+      options
+    );
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.error("Fetch error:", error);
+    throw new Error(error);
+  }
+}

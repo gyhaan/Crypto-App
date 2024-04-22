@@ -1,6 +1,5 @@
 function AboutCoin({ coin }) {
   const { description } = coin;
-  console.log(description);
 
   return (
     <div className="mb-5">
