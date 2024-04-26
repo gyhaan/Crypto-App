@@ -1,15 +1,9 @@
 import { useCoin } from "../context/ContextProvider";
 
 function SelectCurrency() {
-  const { currency, setCurrency, refetch } = useCoin();
-  async function refetchData(value) {
-    try {
-      await refetch({ currency: value });
-      setCurrency(value);
-    } catch (error) {
-      console.error("Refetch error:", error);
-      // Handle error if needed
-    }
+  const { currency, setCurrency } = useCoin();
+  function refetchData(value) {
+    setCurrency(value);
   }
 
   return (

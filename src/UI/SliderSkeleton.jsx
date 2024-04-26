@@ -1,4 +1,5 @@
 import { useCoin } from "../context/ContextProvider";
+import { fetchChartData } from "../services/apiCoins";
 import {
   roundToTwoDecimalPlaces,
   formatNumberWithK,
@@ -6,15 +7,26 @@ import {
 } from "../helper/formatNumbers";
 
 function SliderSkeleton({ coin }) {
-  const { currency } = useCoin();
+  const { currency, refetchCharts, coinId, setCoinId } = useCoin();
   const {
+    id,
     image,
     name,
     current_price,
     price_change_percentage_24h_in_currency,
   } = coin;
+
+  function fetchData(coinId) {
+    setCoinId(coinId);
+  }
+
   return (
-    <div className="max-w-[250px] h-[95px] mx-2 bg-custom-dark-navy flex items-center justify-center py-3 px-5  gap-5  rounded-md text-[#d1d1d1] hover:bg-custom-blue-violet hover:bg-opacity-[85%] hover:cursor-pointer">
+    <div
+      className="max-w-[250px] h-[95px] mx-2 bg-custom-dark-navy flex items-center justify-center py-3 px-5  gap-5  rounded-md text-[#d1d1d1] hover:border-[2px] hover:border-[#fff] hover:border-opacity-20 hover:
+      cursor-pointer"
+      onClick={() => fetchData(id)}
+      style={coinId === id ? { backgroundColor: "#627EEA" } : null}
+    >
       <img src={image} alt={name} className="w-[32px] h-[32px] block" />
       <div className="w-[160px] flex flex-col gap-1">
         <p className="text-[16px] text-[#fff]">{name}</p>

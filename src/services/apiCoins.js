@@ -31,7 +31,6 @@ export async function fetchCoinById(coinId) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
-
     return data;
   } catch (error) {
     console.error("Fetch error:", error);
@@ -49,10 +48,26 @@ export async function fetchSearchedCoins() {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
     console.error("Fetch error:", error);
     throw new Error(error);
+  }
+}
+
+export async function fetchChartData(coinId) {
+  try {
+    const response = await fetch(
+      `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=365`,
+      options
+    );
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.error("Fetch operation failed:", error);
   }
 }

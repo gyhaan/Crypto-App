@@ -16,6 +16,7 @@ function CoinTable() {
   const coinContent = coins?.pages.map((coins) =>
     coins.map((coin) => <CoinRow key={coin.id} coin={coin} />)
   );
+
   return (
     <div className="px-2 mb-10">
       {coinContent}

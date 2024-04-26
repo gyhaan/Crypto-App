@@ -1,5 +1,5 @@
-import AreaChart from "../UI/AreaChart";
-import BarChart from "../UI/BarChart";
+import AreaCharts from "../UI/AreaCharts";
+import BarCharts from "../UI/BarCharts";
 import CoinTable from "../UI/CoinTable";
 import TableLegend from "../UI/TableLegend";
 import Carousel from "../UI/Slider";
@@ -9,8 +9,8 @@ function Home() {
     <>
       <Carousel />
       <div className="grid grid-cols-2 gap-7 px-4">
-        <AreaChart />
-        <BarChart />
+        <AreaCharts />
+        <BarCharts />
       </div>
       <TableLegend />
       <CoinTable />
