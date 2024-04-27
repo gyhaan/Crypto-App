@@ -17,6 +17,7 @@ function SearchBar() {
   const onBlur = () => {
     const timeout = setTimeout(() => {
       setFocused(false);
+      setSearchQuery("");
     }, 400);
     setHideSearchListTimeout(timeout);
     console.log(hideSearchListTimeout, "onblur");
