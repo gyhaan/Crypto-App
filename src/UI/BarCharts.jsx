@@ -8,6 +8,7 @@ import {
 } from "recharts";
 import { useCoin } from "../context/ContextProvider";
 import { formatTime } from "../helper/formatTime";
+import { currencyFormatter } from "../helper/formatNumbers";
 
 function BarCharts() {
   const { coinChart, isFetchingCoinChart } = useCoin();
@@ -43,6 +44,8 @@ function BarCharts() {
 }
 
 function CustomTooltip({ active, payload, label }) {
+  const { currency } = useCoin();
+  console.log(currency);
   if (active && payload && payload.length) {
     return (
       <div className="bg-custom-dark-navy-2 py-3 px-6 border-[#fff] border rounded-md text-[#fff]">
@@ -50,10 +53,8 @@ function CustomTooltip({ active, payload, label }) {
         <p>
           A total of{" "}
           <span className="font-bold text-custom-blue-violet">
-            {payload[0].value.toLocaleString("en-US", {
-              style: "currency",
-              currency: "USD",
-            })}
+            {currencyFormatter(currency)}
+            {payload[0].value.toLocaleString()}
           </span>{" "}
           transactions were executed.
         </p>

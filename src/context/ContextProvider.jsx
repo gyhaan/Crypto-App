@@ -24,8 +24,8 @@ function CoinProvider({ children }) {
   });
 
   const { data: coinChart, isFetching: isFetchingCoinChart } = useQuery({
-    queryKey: ["charts", coinId],
-    queryFn: () => fetchChartData(coinId),
+    queryKey: ["charts", coinId, currency],
+    queryFn: () => fetchChartData(coinId, currency),
     placeholderData: keepPreviousData,
     staleTime: Infinity,
   });

@@ -1,6 +1,7 @@
 import { useCoin } from "../context/ContextProvider";
 import { Area, AreaChart, ResponsiveContainer, Tooltip, YAxis } from "recharts";
 import { formatTime } from "../helper/formatTime";
+import { currencyFormatter } from "../helper/formatNumbers";
 
 function AreaCharts() {
   const { coinChart, isFetchingCoinChart } = useCoin();
@@ -47,6 +48,7 @@ function AreaCharts() {
 }
 
 function CustomTooltip({ active, payload, label }) {
+  const { currency } = useCoin();
   if (active && payload && payload.length) {
     return (
       <div className="bg-custom-dark-navy-2 py-3 px-6 border-[#fff] border rounded-md">
@@ -54,7 +56,10 @@ function CustomTooltip({ active, payload, label }) {
         <p>
           The price recorded at{" "}
           <span className="font-bold text-custom-blue-violet">
-            ${payload[0].value}
+            {currencyFormatter(currency)}
+            {payload[0].value.toLocaleString(undefined, {
+              maximumFractionDigits: 10,
+            })}
           </span>
         </p>
       </div>

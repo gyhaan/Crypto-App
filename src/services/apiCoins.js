@@ -55,10 +55,10 @@ export async function fetchSearchedCoins() {
   }
 }
 
-export async function fetchChartData(coinId) {
+export async function fetchChartData(coinId, currency) {
   try {
     const response = await fetch(
-      `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=365`,
+      `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=${currency}&days=365`,
       options
     );
     if (!response.ok) {
