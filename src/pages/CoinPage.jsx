@@ -30,7 +30,7 @@ function CoinPage() {
         <CoinChart coin={coin} />
       </div>
       <MarketDetails coin={coin} />
-      <AboutCoin coin={coin} />
+      {coin.description.en && <AboutCoin coin={coin} />}
     </div>
   );
 }

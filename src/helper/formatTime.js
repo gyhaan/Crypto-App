@@ -1,4 +1,4 @@
-export function formatTime(timeString) {
+export function formatTime(timeString, bool = true) {
   const dateObj = new Date(timeString);
   const months = [
     "Jan",
@@ -20,6 +20,13 @@ export function formatTime(timeString) {
   const day = days[dateObj.getDay()];
   const date = dateObj.getDate();
   const year = dateObj.getFullYear();
+  const hour = bool
+    ? dateObj.toLocaleString("en-US", {
+        hour: "numeric",
+        minute: "numeric",
+        hour12: true,
+      })
+    : null;
 
-  return `${day}, ${month} ${date}, ${year}`;
+  return `${day}, ${month} ${date}, ${year} (${hour})`;
 }

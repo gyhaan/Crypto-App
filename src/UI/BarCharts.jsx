@@ -25,7 +25,7 @@ function BarCharts() {
 
   return (
     <div className="bg-custom-dark-navy-3 w-[100%] h-[404px] rounded-[10px]  px-7 pt-4 pb-7 flex flex-col justify-between">
-      <h1 className="text-[28px] text-[#fff] tracking-tight">
+      <h1 className="text-[28px] text-[#fff] tracking-tight mb-3">
         Volume Traded
         <span className="text-[20px]">
           {isFetchingCoinChart ? "(Loading...)" : null}
@@ -45,7 +45,6 @@ function BarCharts() {
 
 function CustomTooltip({ active, payload, label }) {
   const { currency } = useCoin();
-  console.log(currency);
   if (active && payload && payload.length) {
     return (
       <div className="bg-custom-dark-navy-2 py-3 px-6 border-[#fff] border rounded-md text-[#fff]">

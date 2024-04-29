@@ -18,7 +18,7 @@ function AreaCharts() {
 
   return (
     <div className="bg-[#191932] w-[100%] h-[404px] rounded-[10px] px-7 pt-4 pb-8 flex flex-col justify-between text-[#fff]">
-      <h1 className="text-[28px] tracking-tight">
+      <h1 className="text-[28px] tracking-tight mb-3">
         Price Changes
         <span className="text-[20px]">
           {isFetchingCoinChart ? "  (Loading...)" : null}

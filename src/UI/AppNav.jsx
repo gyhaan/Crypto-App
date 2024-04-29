@@ -4,7 +4,7 @@ import SelectCurrency from "./SelectCurrency";
 
 function AppNav() {
   return (
-    <div className="flex justify-between items-center h-[96px]">
+    <div className="flex justify-between items-center h-[96px] ">
       <Link to="/">
         <img src="/Logo.svg" alt="" className="w-[171px]" />
       </Link>

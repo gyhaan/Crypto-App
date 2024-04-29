@@ -7,11 +7,11 @@ function AppLayout() {
     <>
       <header>
         <Global />
-        <div className="max-w-[1296px] mx-auto">
+        <div className="max-w-[1296px] mx-auto px-2">
           <AppNav />
         </div>
       </header>
-      <main className="max-w-[1296px] mx-auto">
+      <main className="max-w-[1296px] mx-auto px-4">
         <Outlet />
       </main>
     </>

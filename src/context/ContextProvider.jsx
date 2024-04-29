@@ -13,6 +13,7 @@ function CoinProvider({ children }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [chartData, setChartData] = useState([]);
   const [coinId, setCoinId] = useState("bitcoin");
+  const [days, setDays] = useState(1);
 
   const { data, fetchNextPage, status, isFetching } = useInfiniteQuery({
     queryKey: ["coins", currency],
@@ -24,8 +25,8 @@ function CoinProvider({ children }) {
   });
 
   const { data: coinChart, isFetching: isFetchingCoinChart } = useQuery({
-    queryKey: ["charts", coinId, currency],
-    queryFn: () => fetchChartData(coinId, currency),
+    queryKey: ["charts", coinId, currency, days],
+    queryFn: () => fetchChartData(coinId, currency, days),
     placeholderData: keepPreviousData,
     staleTime: Infinity,
   });
@@ -47,6 +48,8 @@ function CoinProvider({ children }) {
         setChartData,
         coinChart,
         isFetchingCoinChart,
+        days,
+        setDays,
       }}
     >
       {children}

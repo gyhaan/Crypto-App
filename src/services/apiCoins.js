@@ -55,17 +55,16 @@ export async function fetchSearchedCoins() {
   }
 }
 
-export async function fetchChartData(coinId, currency) {
+export async function fetchChartData(coinId, currency, days = 365) {
   try {
     const response = await fetch(
-      `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=${currency}&days=365`,
+      `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=${currency}&days=${days}`,
       options
     );
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
     console.error("Fetch operation failed:", error);
