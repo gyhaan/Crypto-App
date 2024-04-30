@@ -18,7 +18,7 @@ function BackToTopButton() {
   return (
     isActive && (
       <button
-        className="w-12 h-12 rounded-full bg-custom-blue-violet fixed z-50 bottom-4 left-4 flex justify-center items-center"
+        className="w-12 h-12 rounded-full bg-custom-blue-violet fixed z-50 bottom-4 right-4 flex justify-center items-center"
         onClick={backToTop}
       >
         <img src="/left-arrow.svg" alt="back to top" className="rotate-90" />
