@@ -41,7 +41,7 @@ export async function fetchCoinById(coinId) {
 export async function fetchSearchedCoins() {
   try {
     const response = await fetch(
-      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250",
+      "/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250",
       options
     );
     if (!response.ok) {
@@ -58,7 +58,7 @@ export async function fetchSearchedCoins() {
 export async function fetchChartData(coinId, currency, days = 365) {
   try {
     const response = await fetch(
-      `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=${currency}&days=${days}`,
+      `/api/v3/coins/${coinId}/market_chart?vs_currency=${currency}&days=${days}`,
       options
     );
     if (!response.ok) {
