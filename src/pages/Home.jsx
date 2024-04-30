@@ -4,6 +4,7 @@ import CoinTable from "../UI/CoinTable";
 import TableLegend from "../UI/TableLegend";
 import Carousel from "../UI/Slider";
 import TabButtons from "../UI/TabButtons";
+import BackToTopButton from "../UI/BackToTopButton";
 
 function Home() {
   return (
@@ -16,6 +17,7 @@ function Home() {
       <TabButtons />
       <TableLegend />
       <CoinTable />
+      <BackToTopButton />
     </>
   );
 }
