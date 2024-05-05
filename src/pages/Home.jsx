@@ -10,10 +10,10 @@ function Home() {
   return (
     <>
       <Carousel />
-      <div className="grid grid-cols-2 gap-7 ">
+      {/*       <div className="grid grid-cols-2 gap-7 ">
         <AreaCharts />
         <BarCharts />
-      </div>
+      </div> */}
       <TabButtons />
       <TableLegend />
       <CoinTable />

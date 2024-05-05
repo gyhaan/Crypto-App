@@ -12,7 +12,7 @@ function AreaCharts() {
         price: prices[1],
       };
     })
-    .filter((prices, index) => {
+    .filter((_, index) => {
       return index % 4 === 0;
     });
 
