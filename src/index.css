@@ -8,6 +8,10 @@ body {
   font-family: Inter, sans-serif;
 }
 
+input[type="date"] {
+  color-scheme: dark;
+}
+
 .active {
   color: #627eea;
   font-weight: 600;

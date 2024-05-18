@@ -70,3 +70,21 @@ export async function fetchChartData(coinId, currency, days = 365) {
     console.error("Fetch operation failed:", error);
   }
 }
+
+export async function fetchHistoricalData(id, date) {
+  try {
+    const formattedDate = date.split("-").reverse().join("-");
+    const response = await fetch(
+      `/api/v3/coins/${id}/history?date=${formattedDate}&localization=false`,
+      options
+    );
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.error("Fetch operation failed:", error);
+  }
+}

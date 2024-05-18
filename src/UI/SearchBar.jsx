@@ -1,9 +1,8 @@
 import { useRef, useState } from "react";
 import SearchList from "./SearchList";
-import { useCoin } from "../context/ContextProvider";
 
 function SearchBar() {
-  const { searchQuery, setSearchQuery } = useCoin();
+  const [searchQuery, setSearchQuery] = useState("");
   const inputRef = useRef(null);
   const [focused, setFocused] = useState(false);
   const [hideSearchListTimeout, setHideSearchListTimeout] = useState(null);
@@ -36,7 +35,7 @@ function SearchBar() {
           onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
-      {focused && <SearchList />}
+      {focused && <SearchList searchQuery={searchQuery} />}
     </div>
   );
 }

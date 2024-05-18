@@ -4,13 +4,16 @@ import {
   keepPreviousData,
 } from "@tanstack/react-query";
 import { createContext, useContext, useState } from "react";
-import { fetchChartData, fetchCoins } from "../services/apiCoins";
+import {
+  fetchChartData,
+  fetchCoins,
+  fetchSearchedCoins,
+} from "../services/apiCoins";
 
 const CoinContext = createContext();
 
 function CoinProvider({ children }) {
   const [currency, setCurrency] = useState("usd");
-  const [searchQuery, setSearchQuery] = useState("");
   const [chartData, setChartData] = useState([]);
   const [coinId, setCoinId] = useState("bitcoin");
   const [days, setDays] = useState(1);
@@ -31,6 +34,12 @@ function CoinProvider({ children }) {
     staleTime: Infinity,
   });
 
+  const { data: allCoins, isLoading: isLoadingAllCoins } = useQuery({
+    queryKey: ["searchCoin"],
+    queryFn: fetchSearchedCoins,
+    staleTime: Infinity,
+  });
+
   return (
     <CoinContext.Provider
       value={{
@@ -40,8 +49,6 @@ function CoinProvider({ children }) {
         isFetching,
         currency,
         setCurrency,
-        searchQuery,
-        setSearchQuery,
         coinId,
         setCoinId,
         chartData,
@@ -50,6 +57,8 @@ function CoinProvider({ children }) {
         isFetchingCoinChart,
         days,
         setDays,
+        allCoins,
+        isLoadingAllCoins,
       }}
     >
       {children}
