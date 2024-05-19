@@ -23,7 +23,8 @@ function Form({ setShowForm }) {
         <DatePicker date={date} setDate={setDate} />
       </div>
       <button
-        className="block w-fit text-[#fff] px-8 py-2 bg-custom-blue-violet rounded-md my-3 mt-5 ml-auto"
+        className="block w-fit text-[#fff] px-8 py-2 bg-custom-blue-violet rounded-md my-3 mt-5 ml-auto hover:cursor-pointer disabled:cursor-not-allowed"
+        disabled={!searchQuery || amount <= 0 || !date}
         onClick={(e) => handleSubmit(e)}
       >
         Save And Continue
