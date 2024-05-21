@@ -6,7 +6,7 @@ const options = {
 export async function fetchCoins({ pageParam, currency }) {
   try {
     const response = await fetch(
-      `/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=20&page=${pageParam}&sparkline=true&price_change_percentage=1h%2C24h%2C7d&precision=2`,
+      `/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=50&page=${pageParam}&sparkline=true&price_change_percentage=1h%2C24h%2C7d&precision=2`,
       options
     );
     if (!response.ok) {
