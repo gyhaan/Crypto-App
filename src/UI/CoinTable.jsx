@@ -29,7 +29,7 @@ function CoinTable() {
         </button>
       )}
       {isFetching && <Loader />}
-      {coins?.pages.length === 4 && (
+      {coins?.pages.length === 10 && (
         <p className="text-[#fff] mt-10 text-center text-[25px]">
           Thank you, that's all we have for now 😇
         </p>
