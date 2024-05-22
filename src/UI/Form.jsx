@@ -3,8 +3,10 @@ import AmountPicker from "../UI/AmountPicker";
 import CoinPicker from "../UI/CoinPicker";
 import DatePicker from "../UI/DatePicker";
 import { fetchHistoricalData } from "../services/apiCoins";
+import { usePortfolio } from "../context/PortfolioProvider";
 
-function Form({ setShowForm }) {
+function Form() {
+  const { setShowForm, showForm } = usePortfolio();
   const [searchQuery, setSearchQuery] = useState("");
   const [amount, setAmount] = useState(0);
   const [date, setDate] = useState("");
@@ -16,20 +18,25 @@ function Form({ setShowForm }) {
     setShowForm(false);
   }
   return (
-    <form className="my-4" onSubmit={(e) => handleSubmit(e)}>
-      <div className="text-[#d1d1d1] flex justify-around">
-        <CoinPicker searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-        <AmountPicker amount={amount} setAmount={setAmount} />
-        <DatePicker date={date} setDate={setDate} />
-      </div>
-      <button
-        className="block w-fit text-[#fff] px-8 py-2 bg-custom-blue-violet rounded-md my-3 mt-5 ml-auto hover:cursor-pointer disabled:cursor-not-allowed"
-        disabled={!searchQuery || amount <= 0 || !date}
-        onClick={(e) => handleSubmit(e)}
-      >
-        Save And Continue
-      </button>
-    </form>
+    showForm && (
+      <form className="my-4" onSubmit={(e) => handleSubmit(e)}>
+        <div className="text-[#d1d1d1] flex justify-around">
+          <CoinPicker
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+          />
+          <AmountPicker amount={amount} setAmount={setAmount} />
+          <DatePicker date={date} setDate={setDate} />
+        </div>
+        <button
+          className="block w-fit text-[#fff] px-8 py-2 bg-custom-blue-violet rounded-md my-3 mt-5 ml-auto hover:cursor-pointer disabled:cursor-not-allowed"
+          disabled={!searchQuery || amount <= 0 || !date}
+          onClick={(e) => handleSubmit(e)}
+        >
+          Save And Continue
+        </button>
+      </form>
+    )
   );
 }
 
