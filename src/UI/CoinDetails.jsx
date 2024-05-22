@@ -8,7 +8,7 @@ import { formatTime } from "../helper/formatTime";
 
 function CoinDetails({ coin }) {
   const { currency } = useCoin();
-  const { name, symbol, description, links, market_data, image } = coin;
+  const { name, symbol, links, market_data, image } = coin;
 
   const {
     current_price,
@@ -25,7 +25,9 @@ function CoinDetails({ coin }) {
         <div className="flex gap-3 items-center mb-3">
           <img src={image.small} alt="coin image" className="w-[40px] h-auto" />
           <div>
-            <h3 className="text-[24px]">{name}</h3>
+            <h3 className="text-[24px]">
+              {name}({symbol.toUpperCase()})
+            </h3>
             <a className="text-[14px]" href={links.homepage[0]} target="_blank">
               Official Website
             </a>
