@@ -4,7 +4,7 @@ import ProgressBar from "./ProgressBar";
 
 function PortfolioCoin({ coin }) {
   const { allCoins, currency } = useCoin();
-  const { name, id, image, symbol, market_data, amount } = coin;
+  const { name, id, image, symbol, market_data, amount, date } = coin;
   const currentData = allCoins?.find((el) => el.id === id);
 
   return (
@@ -24,7 +24,9 @@ function PortfolioCoin({ coin }) {
             {currencyFormatter(currency)}
             {formatNumberWithK(market_data?.current_price[currency])}
           </p>
-          <p className="text-[#d1d1d1] mt-2">Purchased on: 18/02/2024</p>
+          <p className="text-[#d1d1d1] mt-2">
+            Purchased on: {new Date(date).toLocaleDateString()}
+          </p>
         </div>
       </div>
       <div className="bg-custom-dark-navy max-w-full w-full rounded-r-lg flex gap-4 px-5 py-5">
