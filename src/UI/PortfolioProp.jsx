@@ -1,8 +1,8 @@
 import { usePortfolio } from "../context/PortfolioProvider";
 
 function PortfolioProp() {
-  const { showForm, setShowForm } = usePortfolio();
-  return !showForm ? (
+  const { showForm, setShowForm, portCoins } = usePortfolio();
+  return !showForm && !portCoins.length ? (
     <div className="flex flex-col items-center justify-center gap-4 text-[#fff] mt-4">
       <img
         src="/crypto-wallet.png"

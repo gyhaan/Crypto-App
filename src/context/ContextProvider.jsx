@@ -40,8 +40,6 @@ function CoinProvider({ children }) {
     staleTime: Infinity,
   });
 
-  console.log(allCoins?.find((el) => el.id === "bitcoin"));
-
   return (
     <CoinContext.Provider
       value={{
