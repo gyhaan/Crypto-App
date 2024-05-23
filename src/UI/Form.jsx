@@ -45,7 +45,7 @@ function Form() {
       try {
         setLoading(true);
         const data = await fetchHistoricalData(searchQuery, date);
-        setPortCoins((portCoins) => [...portCoins, { ...data, amount }]);
+        setPortCoins((portCoins) => [...portCoins, { ...data, amount, date }]);
       } catch (err) {
         alert("Looks like Something went Wrong");
         throw new Error("Looks like Something went Wrong");
