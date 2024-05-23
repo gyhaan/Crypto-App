@@ -1,13 +1,8 @@
-import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-
 import { PortfolioProvider } from "../context/PortfolioProvider";
 import Form from "../UI/Form";
 import PortfolioProp from "../UI/PortfolioProp";
 import AddAssetButton from "../UI/AddAssetButton";
-
-import { fetchHistoricalData } from "../services/apiCoins";
-import PortfolioCoin from "../UI/PortfolioCoin";
+import PortfolioCoinList from "../UI/PortfolioCoinList";
 
 function Portfolio() {
   return (
@@ -15,7 +10,7 @@ function Portfolio() {
       <AddAssetButton />
       <Form />
       <PortfolioProp />
-      <PortfolioCoin />
+      <PortfolioCoinList />
     </PortfolioProvider>
   );
 }
