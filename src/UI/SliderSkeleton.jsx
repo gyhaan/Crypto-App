@@ -7,7 +7,7 @@ import {
 } from "../helper/formatNumbers";
 
 function SliderSkeleton({ coin }) {
-  const { currency, refetchCharts, coinId, setCoinId } = useCoin();
+  const { currency, coinId, setCoinId } = useCoin();
   const {
     id,
     image,
