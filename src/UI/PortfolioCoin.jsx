@@ -2,13 +2,13 @@ import { useCoin } from "../context/ContextProvider";
 import { currencyFormatter, formatNumberWithK } from "../helper/formatNumbers";
 import ProgressBar from "./ProgressBar";
 
-function PortfolioCoin({ coin }) {
+function PortfolioCoin({ coin, index, onRemove }) {
   const { allCoins, currency } = useCoin();
   const { name, id, image, symbol, market_data, amount, date } = coin;
   const currentData = allCoins?.find((el) => el.id === id);
 
   return (
-    <div className=" h-52 flex text-white">
+    <div className=" h-52 flex text-white max-w-[97%] mx-auto">
       <div className="bg-custom-dark-navy-2 w-[35%] max-w-[35%] px-5 py-3 rounded-l-lg flex flex-col justify-evenly">
         <div className=" text-[20px] flex items-center gap-2">
           <div className="w-10 h-auto">
@@ -92,6 +92,17 @@ function PortfolioCoin({ coin }) {
               />
             </div>
           </div>
+        </div>
+        <div className="flex flex-col gap-1">
+          <button className="bg-custom-blue-violet text-white max-w-fit px-4 py-1 rounded">
+            Edit
+          </button>
+          <button
+            className="bg-custom-blue-violet text-white max-w-fit px-4 py-1 rounded"
+            onClick={() => onRemove(name, date, index)}
+          >
+            Remove
+          </button>
         </div>
       </div>
     </div>

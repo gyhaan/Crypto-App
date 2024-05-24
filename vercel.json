@@ -7,6 +7,10 @@
     {
       "source": "/api/v3/coins/:path*",
       "destination": "https://api.coingecko.com/api/v3/coins/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }

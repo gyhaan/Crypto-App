@@ -1,17 +1,12 @@
 import CoinRow from "./CoinRow";
 import { useCoin } from "../context/ContextProvider";
 import Loader from "./Loader";
+import Error from "./Error";
 
 function CoinTable() {
   const { data: coins, status, isFetching, fetchNextPage } = useCoin();
 
-  if (status === "error") {
-    return (
-      <h1 className="text-[#fff] mx-auto w-fit my-10 text-[28px]">
-        ⚠️Failed to fetch
-      </h1>
-    );
-  }
+  if (status === "error") return <Error />;
 
   const coinContent = coins?.pages.map((coins) =>
     coins.map((coin) => <CoinRow key={coin.id} coin={coin} />)

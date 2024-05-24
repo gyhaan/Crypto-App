@@ -8,6 +8,7 @@ import CoinChart from "../UI/CoinChart";
 import CoinDetails from "../UI/CoinDetails";
 import MarketDetails from "../UI/MarketDetails";
 import Loader from "../UI/Loader";
+import Error from "../UI/Error";
 
 function CoinPage() {
   const { id } = useParams();
@@ -22,6 +23,8 @@ function CoinPage() {
   });
 
   if (isLoading) return <Loader />;
+
+  if (status === "error") return <Error />;
 
   return (
     <div className="px-4 pb-10 pt-2">

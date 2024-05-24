@@ -12,15 +12,7 @@ function Carousel() {
     <SliderSkeleton coin={coin} key={coin.id} />
   ));
 
-  if (status === "error") {
-    return (
-      <h1 className="text-[#fff] mx-auto w-fit my-7 text-[28px]">
-        ⚠️Failed to fetch
-      </h1>
-    );
-  }
-
-  if (!data) return <Loader />;
+  if (status === "pending") return <Loader />;
 
   const settings = {
     dots: false,
