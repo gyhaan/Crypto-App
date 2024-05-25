@@ -10,9 +10,9 @@ function PageNotFound() {
       </p>
       <button
         className="bg-[#fff] px-8 py-3 w-fit text-custom-blue-violet rounded-md mt-5"
-        onClick={() => navigate(-1)}
+        onClick={() => navigate("/")}
       >
-        Go back
+        Go back Home
       </button>
     </div>
   );
