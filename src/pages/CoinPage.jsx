@@ -27,8 +27,8 @@ function CoinPage() {
   if (status === "error") return <Error />;
 
   return (
-    <div className="px-4 pb-10 pt-2">
-      <div className="flex gap-4 mb-5">
+    <div className="px-1 md:px-4 pb-10 pt-2">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 mb-5">
         <CoinDetails coin={coin} />
         <CoinChart coin={coin} />
       </div>

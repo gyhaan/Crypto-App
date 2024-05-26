@@ -38,7 +38,7 @@ function CoinRow({ coin }) {
 
   return (
     <Link to={`coin/${id}`}>
-      <div className="bg-custom-dark-navy text-white text-sm flex justify-start gap-3 sm:gap-2 items-center h-20 text-[14px] p-3 rounded-lg mb-4 hover:border-[2px] hover:border-[#fff] hover:border-opacity-20">
+      <div className="bg-custom-dark-navy text-white text-sm flex justify-between gap-3 sm:gap-2 items-center h-20 text-[14px] p-3 rounded-lg mb-4 hover:border-[2px] hover:border-[#fff] hover:border-opacity-20">
         <span className="sm:max-w-[3%] w-full mr-2 px-1 hidden sm:block">
           {market_cap_rank}
         </span>
@@ -68,7 +68,7 @@ function CoinRow({ coin }) {
             }}
           >
             {formatNumberWithK(
-              Math.abs(price_change_percentage_1h_in_currency)
+              Math.abs(price_change_percentage_1h_in_currency),
             )}
             %
           </span>
@@ -89,7 +89,7 @@ function CoinRow({ coin }) {
             }}
           >
             {formatNumberWithK(
-              Math.abs(price_change_percentage_24h_in_currency)
+              Math.abs(price_change_percentage_24h_in_currency),
             )}
             %
           </span>
@@ -109,7 +109,7 @@ function CoinRow({ coin }) {
             }}
           >
             {formatNumberWithK(
-              Math.abs(price_change_percentage_7d_in_currency)
+              Math.abs(price_change_percentage_7d_in_currency),
             )}
             %
           </span>

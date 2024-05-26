@@ -16,6 +16,9 @@ export default {
           "dark-navy-3": "#1E1932",
         },
       },
+      screens: {
+        xs: "445px", // Adding custom breakpoint
+      },
     },
   },
   plugins: [],

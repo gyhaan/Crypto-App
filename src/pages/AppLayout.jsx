@@ -11,7 +11,7 @@ function AppLayout() {
           <AppNav />
         </div>
       </header>
-      <main className="max-w-[1296px] mx-auto px-4">
+      <main className="max-w-[1296px] mx-auto px-1 md:px-4">
         <Outlet />
       </main>
     </>
