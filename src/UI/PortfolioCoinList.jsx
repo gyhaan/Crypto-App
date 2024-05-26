@@ -6,8 +6,8 @@ function PortfolioCoinList() {
   function handleRemove(name, date, index) {
     const answer = window.confirm(
       `Are you sure you want to remove ${name} that was bought on ${new Date(
-        date
-      ).toLocaleDateString()}?`
+        date,
+      ).toLocaleDateString()}?`,
     );
 
     if (!answer) return;
@@ -15,9 +15,9 @@ function PortfolioCoinList() {
   }
 
   return (
-    <ul>
+    <ul className="flex flex-col gap-2">
       {portCoins?.map((coin, index) => (
-        <li key={index} className="my-3">
+        <li key={index}>
           <PortfolioCoin coin={coin} index={index} onRemove={handleRemove} />
         </li>
       ))}

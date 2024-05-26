@@ -1,4 +1,3 @@
-import { ResponsiveContainer, Area, AreaChart } from "recharts";
 import ReusableChart from "./ReusableChart";
 
 function CoinChart({ coin }) {
@@ -8,8 +7,8 @@ function CoinChart({ coin }) {
   });
 
   return (
-    <div className="w-[50%] h-[340px] px-6 py-3 bg-custom-dark-navy-3 rounded-[10px] text-[#fff] text-[18px]">
-      <span>
+    <div className="h-[340px] px-1 md:px-4 lg:px-6 py-2 md:py-3 bg-custom-dark-navy-3 rounded-[10px] text-[#fff] text-base md:text-lg">
+      <span className="px-2 md:px-0">
         Last 7 Days (
         {market_data.price_change_percentage_7d_in_currency.usd.toFixed(3)}%)
       </span>

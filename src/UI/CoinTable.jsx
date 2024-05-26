@@ -9,7 +9,7 @@ function CoinTable() {
   if (status === "error") return <Error />;
 
   const coinContent = coins?.pages.map((coins) =>
-    coins.map((coin) => <CoinRow key={coin.id} coin={coin} />)
+    coins.map((coin) => <CoinRow key={coin.id} coin={coin} />),
   );
 
   return (

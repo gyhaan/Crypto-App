@@ -1,5 +1,6 @@
 import { useCoin } from "../context/ContextProvider";
 import { currencyFormatter, formatNumberWithK } from "../helper/formatNumbers";
+import Loader from "./Loader";
 import ProgressBar from "./ProgressBar";
 
 function PortfolioCoin({ coin, index, onRemove }) {
@@ -7,11 +8,13 @@ function PortfolioCoin({ coin, index, onRemove }) {
   const { name, id, image, symbol, market_data, amount, date } = coin;
   const currentData = allCoins?.find((el) => el.id === id);
 
+  if (!currentData) return <Loader />;
+
   return (
-    <div className=" h-52 flex text-white max-w-[97%] mx-auto">
-      <div className="bg-custom-dark-navy-2 w-[35%] max-w-[35%] px-5 py-3 rounded-l-lg flex flex-col justify-evenly">
+    <div className="min-h-52 max-h-fit flex flex-col lg:flex-row text-white max-w-[97%] mx-auto p-2">
+      <div className="bg-custom-dark-navy-2 w-full lg:w-[35%] lg:max-w-[35%] px-5 py-3 rounded-t-md lg:rounded-l-lg flex flex-col justify-evenly gap-2">
         <div className=" text-[20px] flex items-center gap-2">
-          <div className="w-10 h-auto">
+          <div className="w-6 md:w-10 h-auto">
             <img src={image.small} alt="" className="w-full h-auto" />
           </div>
           <p>
@@ -29,8 +32,8 @@ function PortfolioCoin({ coin, index, onRemove }) {
           </p>
         </div>
       </div>
-      <div className="bg-custom-dark-navy max-w-full w-full rounded-r-lg flex gap-4 px-5 py-5">
-        <div className="flex flex-col w-[48%] h-full justify-around">
+      <div className="bg-custom-dark-navy max-w-full w-full rounded-b-md lg:rounded-r-lg flex flex-col lg:flex-row gap-4 px-5 py-5">
+        <div className="flex flex-col w-full lg:w-[48%] h-full justify-around gap-2">
           <div className="flex justify-between pr-3">
             <div>
               <span className="text-[#d1d1d1] text-sm">Current Price</span>
@@ -58,7 +61,7 @@ function PortfolioCoin({ coin, index, onRemove }) {
             </div>
           </div>
         </div>
-        <div className="flex flex-col w-[48%] h-full justify-around">
+        <div className="flex flex-col-reverse lg:flex-col w-full lg:w-[48%] h-full justify-around gap-2">
           <div>
             <span className="text-[#d1d1d1] text-sm">24h%</span>
             <div className="text-xl flex">
@@ -93,7 +96,7 @@ function PortfolioCoin({ coin, index, onRemove }) {
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-1">
+        <div className="flex gap-2 lg:flex-col">
           <button className="bg-custom-blue-violet text-white max-w-fit px-4 py-1 rounded">
             Edit
           </button>

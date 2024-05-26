@@ -10,7 +10,7 @@ function Home() {
   return (
     <>
       <Carousel />
-      <div className="grid grid-cols-2 gap-7 ">
+      <div className="grid grid-cols-1 gap-7 lg:grid-cols-2">
         <AreaCharts />
         <BarCharts />
       </div>

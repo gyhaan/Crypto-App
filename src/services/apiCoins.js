@@ -7,7 +7,7 @@ export async function fetchCoins({ pageParam, currency }) {
   try {
     const response = await fetch(
       `/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=50&page=${pageParam}&sparkline=true&price_change_percentage=1h%2C24h%2C7d&precision=2`,
-      options
+      options,
     );
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -25,7 +25,7 @@ export async function fetchCoinById(coinId) {
   try {
     const response = await fetch(
       `/api/v3/coins/${coinId}?localization=false&tickers=false&market_data=true&community_data=true&developer_data=false&sparkline=true`,
-      options
+      options,
     );
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -42,7 +42,7 @@ export async function fetchSearchedCoins() {
   try {
     const response = await fetch(
       "/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250",
-      options
+      options,
     );
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -59,7 +59,7 @@ export async function fetchChartData(coinId, currency, days = 365) {
   try {
     const response = await fetch(
       `/api/v3/coins/${coinId}/market_chart?vs_currency=${currency}&days=${days}`,
-      options
+      options,
     );
     if (!response.ok) {
       throw new Error("Network response was not ok");
@@ -76,7 +76,7 @@ export async function fetchHistoricalData(id, date) {
     const formattedDate = date.split("-").reverse().join("-");
     const response = await fetch(
       `/api/v3/coins/${id}/history?date=${formattedDate}&localization=false`,
-      options
+      options,
     );
     if (!response.ok) {
       throw new Error("Network response was not ok");

@@ -20,7 +20,7 @@ function CoinDetails({ coin }) {
   } = market_data;
 
   return (
-    <div className="text-[#fff] flex flex-col w-[50%] gap-4 px-6 bg-custom-dark-navy-2 rounded-[10px] h-[340px] justify-evenly">
+    <div className="text-[#fff] flex flex-col gap-4 px-3 md:px-4 lg:px-6 bg-custom-dark-navy-2 rounded-[10px] h-[340px] justify-evenly">
       <div className="border-b border-[#fff] py-3">
         <div className="flex gap-3 items-center mb-3">
           <img src={image.small} alt="coin image" className="w-[40px] h-auto" />
@@ -35,7 +35,7 @@ function CoinDetails({ coin }) {
         </div>
         <div>
           <div className="flex gap-2 items-center">
-            <p className="text-[24px]">
+            <p className="text-xl md:text-2xl">
               {currencyFormatter(currency)} {""}
               {formatNumberWithK(current_price[currency])}
             </p>
@@ -67,7 +67,7 @@ function CoinDetails({ coin }) {
               {formatTime(ath_date[currency])}
             </p>
           </div>
-          <p className="text-[20px]">
+          <p className="text-base md:text-xl">
             {currencyFormatter(currency)} {formatNumberWithK(ath[currency])}
           </p>
         </div>
@@ -78,7 +78,7 @@ function CoinDetails({ coin }) {
               {formatTime(atl_date[currency])}
             </p>
           </div>
-          <p className="text-[20px]">
+          <p className="text-base md:text-xl">
             {currencyFormatter(currency)} {formatNumberWithK(atl[currency])}
           </p>
         </div>
