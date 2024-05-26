@@ -57,7 +57,7 @@ function Form() {
   return (
     showForm && (
       <form className="my-4" onSubmit={(e) => handleSubmit(e)}>
-        <div className="text-[#d1d1d1] flex justify-around">
+        <div className="text-[#d1d1d1] flex flex-col gap-2 md:justify-around md:flex-row md:gap-0 px-1">
           <CoinPicker
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
@@ -66,7 +66,7 @@ function Form() {
           <DatePicker date={date} setDate={setDate} />
         </div>
         <button
-          className="block w-fit text-[#fff] px-8 py-2 bg-custom-blue-violet rounded-md my-3 mt-5 ml-auto hover:cursor-pointer disabled:cursor-not-allowed"
+          className="block w-fit text-[#fff] px-8 py-2 bg-custom-blue-violet rounded-md my-3 mt-5 md:ml-auto hover:cursor-pointer disabled:cursor-not-allowed"
           disabled={loading}
           onClick={(e) => handleSubmit(e)}
         >
