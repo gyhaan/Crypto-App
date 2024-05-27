@@ -21,7 +21,7 @@ function SearchBar() {
   };
 
   return (
-    <div className="w-[250px] relative">
+    <div className="md:w-[250px] w-3/5 relative">
       <div className="w-full h-[48px] flex items-center bg-custom-dark-navy gap-[12px] py-[8px] px-[16px] rounded-[5px] border border-[#fff] border-opacity-5">
         <img src="/search.svg" alt="" />
         <input

@@ -17,6 +17,10 @@ input[type="date"] {
   font-weight: 600;
 }
 
+.list {
+  overflow-x: clip !important;
+}
+
 .list::-webkit-scrollbar {
   width: 10px;
 }

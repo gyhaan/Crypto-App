@@ -9,7 +9,7 @@ function SearchList({ searchQuery }) {
 
   if (isLoadingAllCoins) {
     return (
-      <ul className="list bg-custom-dark-navy w-full absolute h-20 my-auto overflow-y-scroll z-10 rounded-lg mt-2">
+      <ul className="list bg-custom-dark-navy w-full absolute h-20 my-auto overflow-y-scroll z-30 rounded-lg mt-2">
         <Loader />
       </ul>
     );
