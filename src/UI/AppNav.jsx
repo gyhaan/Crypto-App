@@ -10,11 +10,11 @@ function AppNav() {
 
   useEffect(() => {
     const handleCloseClick = () => {
-      navRef.current.style.right = "-100%";
+      navRef.current.style.top = "-100%";
     };
 
     const handleMenuClick = () => {
-      navRef.current.style.right = "0%";
+      navRef.current.style.top = "0%";
     };
 
     closeRef.current.addEventListener("click", handleCloseClick);
@@ -34,13 +34,13 @@ function AppNav() {
       </Link>
 
       <nav
-        className="md:w-[265px] md:static md:bg-transparent md:flex-row md:h-full md:gap-0 md:items-center fixed w-4/5 h-screen bg-custom-dark-navy-2 top-0 -right-full flex flex-col p-4 pr-6 z-50 gap-6 transition-all"
+        className="md:w-[265px] md:static md:bg-transparent md:flex-row md:h-full md:gap-0 md:items-center fixed w-full h-full bg-custom-dark-navy -top-full flex flex-col p-4 pr-6 z-50 gap-6 transition-all duration-300"
         ref={navRef}
       >
-        <div className="w-8 ml-auto md:hidden">
-          <img src="/close-icon.png" alt="close-icon" ref={closeRef} />
+        <div className="w-8 md:hidden">
+          <img src="/close-icon.svg" alt="close-icon" ref={closeRef} />
         </div>
-        <ul className="flex flex-col md:flex-row justify-around text-[#fff] text-[18px] gap-3 md:gap-6">
+        <ul className="flex flex-col md:flex-row justify-between text-[#fff] text-[18px] gap-3 md:gap-6 pt-16 md:pt-0">
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
@@ -48,6 +48,9 @@ function AppNav() {
             <NavLink to="/portfolio">Portfolio</NavLink>
           </li>
         </ul>
+        <div className="md:hidden">
+          <SelectCurrency />
+        </div>
       </nav>
       <div className="flex max-w-fit gap-4 justify-end">
         <SearchBar />
@@ -56,7 +59,7 @@ function AppNav() {
         </div>
         <div className="max-w-fit h-12 md:hidden">
           <img
-            src="/nav-icon.png"
+            src="/nav-icon.svg"
             alt="nav-icon"
             ref={menuRef}
             className="h-full w-auto "
