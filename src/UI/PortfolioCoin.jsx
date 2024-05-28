@@ -97,9 +97,9 @@ function PortfolioCoin({ coin, index, onRemove }) {
           </div>
         </div>
         <div className="flex gap-2 lg:flex-col">
-          <button className="bg-custom-blue-violet text-white max-w-fit px-4 py-1 rounded">
+          {/*           <button className="bg-custom-blue-violet text-white max-w-fit px-4 py-1 rounded">
             Edit
-          </button>
+          </button> */}
           <button
             className="bg-custom-blue-violet text-white max-w-fit px-4 py-1 rounded"
             onClick={() => onRemove(name, date, index)}
