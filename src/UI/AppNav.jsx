@@ -7,6 +7,7 @@ function AppNav() {
   const closeRef = useRef();
   const navRef = useRef();
   const menuRef = useRef();
+  const listRef = useRef();
 
   useEffect(() => {
     const handleCloseClick = () => {
@@ -17,12 +18,22 @@ function AppNav() {
       navRef.current.style.top = "0%";
     };
 
+    const handleListClick = (e) => {
+      const clicked = e.target.closest("a");
+      if (!clicked) {
+        return;
+      }
+      handleCloseClick();
+    };
+
     closeRef.current.addEventListener("click", handleCloseClick);
     menuRef.current.addEventListener("click", handleMenuClick);
+    listRef.current.addEventListener("click", handleListClick);
 
     return () => {
       closeRef.current.removeEventListener("click", handleCloseClick);
       menuRef.current.removeEventListener("click", handleMenuClick);
+      listRef.current.removeEventListener("click", handleListClick); // Remove the listRef event listener
     };
   }, []);
 
@@ -37,10 +48,13 @@ function AppNav() {
         className="md:w-[265px] md:static md:bg-transparent md:flex-row md:h-full md:gap-0 md:items-center fixed w-full h-full bg-custom-dark-navy -top-full flex flex-col p-4 pr-6 z-50 gap-6 transition-all duration-300"
         ref={navRef}
       >
-        <div className="w-8 md:hidden">
+        <div className="w-8 ml-auto mt-4 md:hidden ">
           <img src="/close-icon.svg" alt="close-icon" ref={closeRef} />
         </div>
-        <ul className="flex flex-col md:flex-row justify-between text-[#fff] text-[18px] gap-3 md:gap-6 pt-16 md:pt-0">
+        <ul
+          className="flex flex-col md:flex-row justify-between text-[#fff] text-[18px] gap-3 md:gap-6 pt-16 md:pt-0"
+          ref={listRef}
+        >
           <li>
             <NavLink to="/">Home</NavLink>
           </li>

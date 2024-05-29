@@ -56,10 +56,9 @@ function CoinDetails({ coin }) {
               </span>
             </div>
           </div>
-          <p className="text-[#d1d1d1]">Profit</p>
         </div>
       </div>
-      <div className=" py-1 ">
+      <div className="py-1">
         <div className="flex justify-between items-center mb-8">
           <div>
             <p>All time High</p>
