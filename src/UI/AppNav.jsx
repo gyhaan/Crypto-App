@@ -41,7 +41,7 @@ function AppNav() {
     <div className="flex justify-between items-center h-[96px] gap-2">
       <Link to="/">
         <img src="/Logo.svg" alt="" className="hidden md:block" />
-        <img src="/favicon.png" alt="" className="md:hidden w-7 h-auto ml-1" />
+        <img src="/favicon.svg" alt="" className="md:hidden w-7 h-auto ml-1" />
       </Link>
 
       <nav
