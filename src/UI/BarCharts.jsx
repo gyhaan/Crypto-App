@@ -24,7 +24,7 @@ function BarCharts() {
     });
 
   return (
-    <div className="bg-custom-dark-navy-3 w-[100%] h-[404px] rounded-[10px]  px-7 pt-4 pb-7 flex flex-col justify-between">
+    <div className="bg-custom-dark-navy-3 w-[100%] h-[404px] rounded-[10px]  px-4 md:px-7 pt-4 pb-5 md:pb-8 flex flex-col justify-between">
       <h1 className="text-2xl text-[#fff] tracking-tight mb-3">
         Volume Traded
         <span className="text-[20px]">
