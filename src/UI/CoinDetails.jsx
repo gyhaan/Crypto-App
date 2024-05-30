@@ -1,7 +1,7 @@
 import { useCoin } from "../context/ContextProvider";
 import {
   currencyFormatter,
-  formatNumberWithK,
+  formatToPrecision,
   roundToTwoDecimalPlaces,
 } from "../helper/formatNumbers";
 import { formatTime } from "../helper/formatTime";
@@ -37,7 +37,7 @@ function CoinDetails({ coin }) {
           <div className="flex gap-2 items-center">
             <p className="text-xl md:text-2xl">
               {currencyFormatter(currency)} {""}
-              {formatNumberWithK(current_price[currency])}
+              {formatToPrecision(current_price[currency])}
             </p>
             <div className="flex">
               {price_change_percentage_24h > 0 ? (
@@ -67,7 +67,7 @@ function CoinDetails({ coin }) {
             </p>
           </div>
           <p className="text-base md:text-xl">
-            {currencyFormatter(currency)} {formatNumberWithK(ath[currency])}
+            {currencyFormatter(currency)} {formatToPrecision(ath[currency])}
           </p>
         </div>
         <div className="flex justify-between items-center">
@@ -78,7 +78,7 @@ function CoinDetails({ coin }) {
             </p>
           </div>
           <p className="text-base md:text-xl">
-            {currencyFormatter(currency)} {formatNumberWithK(atl[currency])}
+            {currencyFormatter(currency)} {formatToPrecision(atl[currency])}
           </p>
         </div>
       </div>

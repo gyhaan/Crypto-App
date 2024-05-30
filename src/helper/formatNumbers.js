@@ -19,6 +19,11 @@ export function formatProgressBar(first, second) {
   }
 }
 
+export function formatToPrecision(n) {
+  if (n < 1) return n.toFixed(8);
+  return formatNumberWithK(n);
+}
+
 export function currencyFormatter(currency) {
   if (currency === "usd") return "$";
   if (currency === "eur") return "€";

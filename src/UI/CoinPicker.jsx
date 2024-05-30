@@ -26,8 +26,13 @@ function CoinPicker({ searchQuery, setSearchQuery }) {
         className="w-full md:w-60 h-10 py-2 px-3 rounded-[3px] mt-1 outline-none border-[1px] border-[#fff] border-opacity-5 focus:outline-[#fff] bg-custom-dark-navy relative text-[#fff]"
         onFocus={handleOnFocus}
         onBlur={handleOnBlur}
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
+        value={searchQuery.name}
+        onChange={(e) => {
+          setSearchQuery((searchQuery) => ({
+            ...searchQuery,
+            name: e.target.value,
+          }));
+        }}
         placeholder="eg: bitcoin"
       />
       {isActive && (
