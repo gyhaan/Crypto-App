@@ -10,6 +10,10 @@ function PortfolioProvider({ children }) {
   });
 
   const [showForm, setShowForm] = useState(false);
+  const [searchQuery, setSearchQuery] = useState({});
+  const [amount, setAmount] = useState(0);
+  const [date, setDate] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("portCoins", JSON.stringify(portCoins));
@@ -17,7 +21,20 @@ function PortfolioProvider({ children }) {
 
   return (
     <PortfolioContext.Provider
-      value={{ portCoins, setPortCoins, showForm, setShowForm }}
+      value={{
+        portCoins,
+        setPortCoins,
+        showForm,
+        setShowForm,
+        searchQuery,
+        setSearchQuery,
+        amount,
+        setAmount,
+        date,
+        setDate,
+        loading,
+        setLoading,
+      }}
     >
       {children}
     </PortfolioContext.Provider>

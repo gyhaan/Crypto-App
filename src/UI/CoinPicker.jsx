@@ -1,7 +1,9 @@
 import { useState } from "react";
 import CoinListPortfolio from "./CoinListPortfolio";
+import { usePortfolio } from "../context/PortfolioProvider";
 
-function CoinPicker({ searchQuery, setSearchQuery }) {
+function CoinPicker() {
+  const { searchQuery, setSearchQuery, loading } = usePortfolio();
   const [isActive, setActive] = useState(false);
   const [timeoutId, setTimeoutId] = useState(null);
 
@@ -33,6 +35,7 @@ function CoinPicker({ searchQuery, setSearchQuery }) {
             name: e.target.value,
           }));
         }}
+        disabled={loading}
         placeholder="eg: bitcoin"
       />
       {isActive && (

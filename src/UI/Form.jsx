@@ -8,20 +8,27 @@ import { useCoin } from "../context/ContextProvider";
 
 function Form() {
   const { allCoins } = useCoin();
-  const { setPortCoins } = usePortfolio();
-  const { setShowForm, showForm } = usePortfolio();
-  const [searchQuery, setSearchQuery] = useState({});
-  const [amount, setAmount] = useState(0);
-  const [date, setDate] = useState("");
-  const [loading, setLoading] = useState(false);
+  const {
+    setPortCoins,
+    showForm,
+    setShowForm,
+    searchQuery,
+    setSearchQuery,
+    amount,
+    setAmount,
+    date,
+    setDate,
+    loading,
+    setLoading,
+  } = usePortfolio();
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (!searchQuery.name) return;
     const coinChecking = allCoins.find((el) => el.name === searchQuery.name);
     if (!coinChecking && searchQuery.id) {
       setSearchQuery((searchQuery) => ({ ...searchQuery, id: "" }));
     }
-  }, [searchQuery.name, allCoins]);
+  }, [searchQuery.name, allCoins]); */
 
   function reset() {
     setShowForm(false);
@@ -55,11 +62,15 @@ function Form() {
     (async () => {
       try {
         setLoading(true);
+        const coinChecker = allCoins.find((el) => el.name === searchQuery.name);
+        if (!coinChecker) {
+          throw new Error("Enter a valid coin");
+        }
         const data = await fetchHistoricalData(searchQuery.id, date);
         setPortCoins((portCoins) => [...portCoins, { ...data, amount, date }]);
       } catch (err) {
-        alert("Looks like Something went Wrong");
-        throw new Error("Looks like Something went Wrong");
+        alert(err);
+        console.error(err);
       } finally {
         reset();
       }
