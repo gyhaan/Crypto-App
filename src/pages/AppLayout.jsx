@@ -7,7 +7,7 @@ function AppLayout() {
     <>
       <header>
         <Global />
-        <div className="max-w-[1296px] mx-auto px-2">
+        <div className="max-w-[1296px] mx-auto px-3">
           <AppNav />
         </div>
       </header>

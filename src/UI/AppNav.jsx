@@ -11,11 +11,11 @@ function AppNav() {
 
   useEffect(() => {
     const handleCloseClick = () => {
-      navRef.current.style.top = "-100%";
+      navRef.current.style.right = "-100%";
     };
 
     const handleMenuClick = () => {
-      navRef.current.style.top = "0%";
+      navRef.current.style.right = "0%";
     };
 
     const handleListClick = (e) => {
@@ -45,7 +45,7 @@ function AppNav() {
       </Link>
 
       <nav
-        className="md:w-[265px] md:static md:bg-transparent md:flex-row md:h-full md:gap-0 md:items-center fixed w-full h-full bg-custom-dark-navy -top-full flex flex-col p-4 pr-6 z-50 gap-6 transition-all duration-300"
+        className="md:w-[265px] md:static md:bg-transparent md:flex-row md:h-full md:gap-0 md:items-center fixed w-4/5 h-full bg-custom-dark-navy top-0 -right-full flex flex-col p-4 pr-6 z-50 gap-6 transition-all duration-300"
         ref={navRef}
       >
         <div className="w-8 ml-auto mt-4 md:hidden ">
@@ -66,7 +66,7 @@ function AppNav() {
           <SelectCurrency />
         </div>
       </nav>
-      <div className="flex max-w-fit gap-4 justify-end">
+      <div className="flex max-w-fit gap-3 lg:gap-4 justify-end">
         <SearchBar />
         <div className="hidden md:block">
           <SelectCurrency />
