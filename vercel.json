@@ -1,12 +1,13 @@
 {
+  "functions": {
+    "api/**/*.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
   "rewrites": [
     {
-      "source": "/api/v3/coins/markets",
-      "destination": "https://api.coingecko.com/api/v3/coins/markets"
-    },
-    {
-      "source": "/api/v3/coins/:path*",
-      "destination": "https://api.coingecko.com/api/v3/coins/:path*"
+      "source": "/proxy",
+      "destination": "/api/proxy.js"
     },
     {
       "source": "/(.*)",
