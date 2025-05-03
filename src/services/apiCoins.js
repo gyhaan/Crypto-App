@@ -1,6 +1,6 @@
 const options = {
   method: "GET",
-  headers: { "x-cg-demo-api-key": "CG-7cteEQTCaeK4y2UBamAguGKg" },
+  headers: { "x-cg-demo-api-key": "CG-ajwVeEiwCEPqSR3wuPTugoMX" },
 };
 
 export async function fetchCoins({ pageParam, currency }) {
